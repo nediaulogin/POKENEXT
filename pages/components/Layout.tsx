@@ -12,8 +12,8 @@ return (
         <Head>
         <link rel='shortcut icon' href='/images/favicon.ico'/>
         </Head>
-        <Navibar/>
-        <main>{children}</main>
+        <Navibar />
+        <main className="min-h-70vh">{children}</main>
         <Footer/>
 </>
 );

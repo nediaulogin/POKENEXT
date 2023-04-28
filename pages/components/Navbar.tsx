@@ -4,22 +4,21 @@ import Link from "next/link";
 
 const Navbar: React.FC = () => {
   return (<>
-    <nav>
-      <div>
-        <Image src="/images/pokeball.png" 
-          width={30}
-          height={30}
-          className ="w-30 h-30"
+    <nav className='flex items-center justify-between p-4 mb-2 bg-gray-900 text-white font-bold'>
+      <div className='flex items-center justify-center'>
+        <Image   src="/images/pokeball.png" 
+          width={35}
+          height={35}
           alt='imagem'/>
-          <h1>Pokenext</h1>
+          <h1 className='text-xl ml-4'>PokeNext</h1>
       </div>
       
-      <ul>
-        <li>
-          <Link href="/">home</Link>
+      <ul className='flex list-none text-xl'>
+        <li className='mr-3'>
+          <Link className='p-1 hover:border-b border-white-400' href="/">home</Link>
         </li>
         <li>
-          <Link href="/about">sobre</Link>
+          <Link className='p-1 hover:border-b border-white-400' href="/about">sobre</Link>
         </li>
       </ul>
     </nav>
