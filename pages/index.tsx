@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
-
+import Image from 'next/image';
+import Card from './components/card';
 interface Pokemon {
   id?: number;
   name: string;
@@ -12,7 +13,7 @@ interface Props {
 
 export const getStaticProps: GetStaticProps<Props> = async () =>{
 
-  const maxPokemons = 250
+  const maxPokemons = 100
   const api = 'https://pokeapi.co/api/v2/pokemon/'
 
   const res = await fetch(`${api}/?limit=${maxPokemons}`)
@@ -30,17 +31,30 @@ return {
 
 
 export default function Home({pokemons}:Props) {
-  return(<div>
-      <h1>PokeNext</h1>
-      <ul>
+  return(
+  <>
+    <div className='flex justify-center items-center mb-6 mt-8'>
+      <h1 className='text-6xl font-bold text-red-600 mt-2'>Poke<span className=' mr-3 text-black'>Next</span></h1>
+      <Image
+      src="/images/pokeball.png"
+      height={60}
+      width={60}
+      alt='pokebola'
+      />
+      </div>
+      <div className='flex justify-between mx-auto items-center max-w-5xl'>
+      <ul className='flex flex-wrap '>
+
         {pokemons.map((pokemon:Pokemon) => (
-          <li key={pokemon.id}>{pokemon.name}</li>
+          <Card key={pokemon.id} pokemon={pokemon}/>
+
         ))}
       </ul>
+      </div>
 
 
-  </div>)
-  
+  </>
+  )
 }
 
 
