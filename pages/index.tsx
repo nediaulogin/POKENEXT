@@ -1,6 +1,5 @@
-import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import Card from './components/card';
+import Card from '../components/card';
 interface Pokemon {
   id?: number;
   name: string;
@@ -11,9 +10,9 @@ interface Props {
 }
 
 
-export const getStaticProps: GetStaticProps<Props> = async () =>{
+export const getStaticProps = async () =>{
 
-  const maxPokemons = 100
+  const maxPokemons = 40
   const api = 'https://pokeapi.co/api/v2/pokemon/'
 
   const res = await fetch(`${api}/?limit=${maxPokemons}`)
@@ -22,6 +21,7 @@ export const getStaticProps: GetStaticProps<Props> = async () =>{
   data.results.forEach((item:Pokemon, index:number) => {
   item.id = index + 1
 });
+
 return {
   props:{
       pokemons: data.results

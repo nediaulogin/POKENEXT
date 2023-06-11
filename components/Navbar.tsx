@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
           width={35}
           height={35}
           alt='imagem'/>
-          <h1 className='text-xl ml-4'>PokeNext</h1>
+          <Link className='text-xl ml-4' href="/">PokeNext</Link>
       </div>
       
       <ul className='flex list-none text-xl'>
