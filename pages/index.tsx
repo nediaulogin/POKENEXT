@@ -10,9 +10,9 @@ interface Props {
 }
 
 
-export const getStaticProps = async () =>{
+export const getStaticProps = async () => {
 
-  const maxPokemons = 40
+  const maxPokemons = 39
   const api = 'https://pokeapi.co/api/v2/pokemon/'
 
   const res = await fetch(`${api}/?limit=${maxPokemons}`)
@@ -42,7 +42,7 @@ export default function Home({pokemons}:Props) {
       alt='pokebola'
       />
       </div>
-      <div className='flex justify-between mx-auto items-center max-w-5xl'>
+      <div className='flex justify-center mx-auto items-center max-w-5xl'>
       <ul className='flex flex-wrap '>
 
         {pokemons.map((pokemon:Pokemon) => (

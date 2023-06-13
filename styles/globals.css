@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-    @apply bg-white box-border m-0 p-0;
+    @apply bg-gray-300 box-border m-0 p-0;
     
 }

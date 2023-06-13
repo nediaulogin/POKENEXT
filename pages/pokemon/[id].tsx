@@ -1,3 +1,4 @@
+import Image from "next/image";
 type Pokemon = {
 	id: number;
 	name: string;
@@ -5,11 +6,6 @@ type Pokemon = {
 }
 
 
-
-
-export default function Pokemon({ pokemon }) {
-	return <p>{pokemon.name}</p>
-}
 export const getStaticPaths = async () => {
 
 	const maxPokemons = 40
@@ -41,4 +37,30 @@ export const getStaticProps = async (context: any) => {
 	return {
 		props: { pokemon: data },
 	}
+}
+
+
+
+export default function Pokemon({ pokemon }) {
+	return (<>
+		<div className="ml-7">
+			<h1 className="font-bold my-2 text-2xl capitalize">
+				{pokemon.name}
+			</h1>
+			<Image className=""
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+            width={200}
+            height={200}
+            alt="cara"/>
+			<h3 className="font-bold my-2 text-2xl capitalize"> número </h3>
+			<p>#{pokemon.id}</p>
+			<h3 className="font-bold my-2 text-2xl capitalize"> Tipo </h3>
+			<div className="">
+				{pokemon.types.map((item, index) => (
+					<span key={index}>{item.type.name}</span>
+				))}
+			</div>
+		</div>
+		</>
+	)
 }
