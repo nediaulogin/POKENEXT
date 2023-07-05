@@ -42,8 +42,8 @@ export const getStaticProps = async (context: any) => {
 
 
 export default function Pokemon({ pokemon }) {
-	return (<>
-		<div className="ml-7">
+	return (
+		<div className="flex flex-col items-center">
 			<h1 className="font-bold my-2 text-2xl capitalize">
 				{pokemon.name}
 			</h1>
@@ -61,6 +61,6 @@ export default function Pokemon({ pokemon }) {
 				))}
 			</div>
 		</div>
-		</>
+		
 	)
 }

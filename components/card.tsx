@@ -2,8 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Card({pokemon}:any) {
-    return( <div className="flex justify-center items-center flex-col bg-gray-800 mx-10 my-5 
-            py-16 w-1/4 rounded-xl border-solid border-4 border-purple-800 shadow-1 max-h-30">
+    return( <div className="flex justify-center items-center flex-col bg-gray-800 
+        m-4 px-7 py-7 rounded-xl border-solid border-4 border-purple-800 shadow-1 max-h-30">
         <Image className="mb-2"
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
             width={80}
