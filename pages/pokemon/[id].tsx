@@ -8,7 +8,7 @@ type Pokemon = {
 
 export const getStaticPaths = async () => {
 
-	const maxPokemons = 40
+	const maxPokemons = 150
 	const api = `https://pokeapi.co/api/v2/pokemon/`
 
 	const res = await fetch(`${api}/?limit=${maxPokemons}`)
@@ -41,26 +41,26 @@ export const getStaticProps = async (context: any) => {
 
 
 
-export default function Pokemon({ pokemon }) {
+export default function Pokemon({ pokemon }: any) {
 	return (
-		<div className="flex flex-col items-center">
+		<div className="flex flex-col items-center gap-2">
 			<h1 className="font-bold my-2 text-2xl capitalize">
 				{pokemon.name}
 			</h1>
 			<Image className=""
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-            width={200}
-            height={200}
-            alt="cara"/>
-			<h3 className="font-bold my-2 text-2xl capitalize"> número </h3>
-			<p>#{pokemon.id}</p>
-			<h3 className="font-bold my-2 text-2xl capitalize"> Tipo </h3>
-			<div className="">
-				{pokemon.types.map((item, index) => (
+				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+				width={200}
+				height={200}
+				alt="cara" />
+			<h3 className="font-bold text-2xl capitalize"> número </h3>
+			<p className=" font-semibold p-2 ">#{pokemon.id}</p>
+			<h3 className="font-bold text-2xl capitalize"> Tipo </h3>
+			<div className="border rounded-full font-semibold px-3 py-2 border-purple-600 border-[5px]">
+				{pokemon.types.map((item: any, index: any) => (
 					<span key={index}>{item.type.name}</span>
 				))}
 			</div>
 		</div>
-		
+
 	)
 }
